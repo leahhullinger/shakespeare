@@ -6,11 +6,11 @@ export default ({ date, body, rating, author }) => {
     <div className={styles.container}>
       <div className={styles.col_1}>
         <p>{date}</p>
-        <div>star rating</div>
+        <div>{rating}</div>
       </div>
       <div className={styles.col_2}>
         <p>{body}</p>
-        <p>{author}</p>
+        <p>- {author}</p>
       </div>
     </div>
   );
