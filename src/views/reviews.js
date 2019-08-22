@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
-
+import styles from "./reviews.module.css";
 export default class Reviews extends Component {
   constructor(props) {
     super(props);
@@ -26,11 +26,11 @@ export default class Reviews extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         {!!this.state.reviews &&
           this.state.reviews.map(review => {
             return (
-              <div key={review.id}>
+              <div className={styles.wrapper} key={review.id}>
                 <ReviewCard
                   date={review.publish_date}
                   body={review.body}

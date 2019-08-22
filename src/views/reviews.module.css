@@ -1,0 +1,9 @@
+.container {
+  width: 66.6%;
+  background-color: rgba(255, 255, 255, 0.86);
+  border-radius: 43px;
+}
+
+.wrapper {
+  padding: 20px;
+}

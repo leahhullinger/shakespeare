@@ -1,11 +1,9 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  padding: 20px 50px;
+  background-image: url("https://static01.nyt.com/newsgraphics/2016/04/23/shakespeare-obit/5df060d71eeea88c911a30e5b02991c26fe7bc74/bill.jpg");
+  background-position: center right;
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
 }
 
 .App-header {
@@ -17,10 +15,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
