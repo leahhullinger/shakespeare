@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+}
+
+.title {
+  text-align: left;
+  font-size: 24px;
+  font-family: "Beth Ellen", cursive;
+}
+
+/* add @media that makes font bigger */
