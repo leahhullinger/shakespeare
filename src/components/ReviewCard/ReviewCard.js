@@ -1,30 +1,34 @@
 import React from "react";
 import StarRatings from "react-star-ratings";
+import formatDate from "../formatDate/formatDate";
 import styles from "./ReviewCard.module.css";
 
-export default ({ date, body, rating, author }) => {
-  const formatDate = date
-    .substring(0, date.indexOf("T"))
-    .split("-")
-    .reverse()
-    .join("/");
+const ReviewCard = ({ body, rating, author }) => {
   return (
     <div className={styles.container}>
       <div className={styles.ratingWrapper}>
-        <p>{rating}</p>
+        <p className={styles.rating}>{rating}</p>
         <StarRatings
           rating={rating}
-          starRatedColor="blue"
+          starRatedColor="#FF0059"
           numberOfStars={6}
           starDimension="20px"
           starSpacing="3px"
         />
       </div>
-      <div className={styles.reviewWrapper}>
+      <div className={styles.postInfo}>
         <p>{formatDate}</p>
+        <p>{author}</p>
+      </div>
+      <div className={styles.reviewWrapper}>
         <p>"{body}"</p>
-        <p>- {author}</p>
+      </div>
+      <div className={styles.footer}>
+        <button>agree</button>
+        <button>disagree</button>
       </div>
     </div>
   );
 };
+
+export default ReviewCard;

@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
       <AppHeader />
-      <Reviews />
+      <div style={{ position: "relative", top: 150 }}>
+        <Reviews />
+      </div>
     </div>
   );
 }

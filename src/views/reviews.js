@@ -11,7 +11,6 @@ export default class Reviews extends Component {
     };
   }
 
-  // sort reviews by date?
   componentDidMount() {
     axios({
       method: "get",
@@ -19,6 +18,7 @@ export default class Reviews extends Component {
       headers: { "x-api-key": "H3TM28wjL8R4#HTnqk?c" }
     })
       .then(response => {
+        console.log(response.data);
         this.setState({ reviews: response.data });
       })
       .catch(error => console.log("there was an error getting reviews", error));
