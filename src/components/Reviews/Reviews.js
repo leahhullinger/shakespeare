@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ReviewCard from "../components/ReviewCard/ReviewCard";
-import styles from "./reviews.module.css";
+import ReviewCard from "../ReviewCard/ReviewCard";
+import formatDate from "../../utilities/formatDate";
+import sortReviews from "../../utilities/sortReviews";
+import styles from "./Reviews.module.css";
+import { apiKey } from "../../config";
+
 export default class Reviews extends Component {
   constructor(props) {
     super(props);
@@ -12,17 +16,24 @@ export default class Reviews extends Component {
   }
 
   componentDidMount() {
+    this.onGetReviews();
+  }
+
+  onGetReviews = () => {
     axios({
       method: "get",
       url: "https://shakespeare.podium.com/api/reviews",
-      headers: { "x-api-key": "H3TM28wjL8R4#HTnqk?c" }
+      headers: { "x-api-key": apiKey }
     })
       .then(response => {
-        console.log(response.data);
-        this.setState({ reviews: response.data });
+        const sortedResponse = sortReviews(response.data);
+        console.log("response", response);
+        this.setState({ reviews: sortedResponse });
       })
       .catch(error => console.log("there was an error getting reviews", error));
-  }
+  };
+
+  // TODO: create func for sorting reviews
 
   render() {
     return (
@@ -32,7 +43,7 @@ export default class Reviews extends Component {
             return (
               <div className={styles.wrapper} key={review.id}>
                 <ReviewCard
-                  date={review.publish_date}
+                  date={formatDate(review.publish_date)}
                   body={review.body}
                   author={review.author}
                   rating={review.rating}

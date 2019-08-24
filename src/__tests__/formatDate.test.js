@@ -1,4 +1,4 @@
-import formatDate from "./formatDate";
+import formatDate from "../utilities/formatDate";
 
 describe("formatDate Component", () => {
   test("date is formatted", () => {
