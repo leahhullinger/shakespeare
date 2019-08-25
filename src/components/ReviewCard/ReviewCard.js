@@ -10,7 +10,7 @@ const ReviewCard = ({ date, body, rating, author }) => {
         <p className={styles.rating}>{rating}</p>
         <StarRatings
           rating={rating}
-          starRatedColor="#FF0059"
+          starRatedColor="#06F0A9"
           numberOfStars={6}
           starDimension="30px"
           starSpacing="3px"

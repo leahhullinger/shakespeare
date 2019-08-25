@@ -2,6 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  background-image: url("https://static01.nyt.com/newsgraphics/2016/04/23/shakespeare-obit/5df060d71eeea88c911a30e5b02991c26fe7bc74/bill.jpg");
+  background-position: top center;
+  background-attachment: fixed;
 }
 
 .wrapper {

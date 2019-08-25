@@ -1,35 +1,30 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import styles from "./Counter.module.css";
 
-class Counter extends Component {
-  constructor(props) {
-    super(props);
+function Counter() {
+  const [likesCount, setLikesCount] = useState(0);
+  const [dislikesCount, setDislikesCount] = useState(0);
 
-    this.state = {
-      likesCount: 0,
-      dislikesCount: 0
-    };
-  }
-
-  onLikeClick = () => {
-    this.setState({ likesCount: this.state.likesCount + 1 });
-  };
-
-  onDislikeClick = () => {
-    this.setState({ dislikesCount: this.state.dislikesCount + 1 });
-  };
-
-  render() {
-    return (
-      <div>
-        <button
-          onClick={this.onLikeClick}
-        >{`Likes ${this.state.likesCount}`}</button>
-        <button onClick={this.onDislikeClick}>
-          {`Dislikes ${this.state.dislikesCount}`}
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div className={styles.container}>
+      <button
+        className={styles.btn}
+        data-testid="likesBtn"
+        onClick={() => setLikesCount(likesCount + 1)}
+      >
+        <p data-testid="likes">Likes</p>
+        {likesCount}
+      </button>
+      <button
+        className={styles.btn}
+        data-testid="dislikesBtn"
+        onClick={() => setDislikesCount(dislikesCount + 1)}
+      >
+        <p data-testid="dislikes">Dislikes</p>
+        {dislikesCount}
+      </button>
+    </div>
+  );
 }
 
 export default Counter;

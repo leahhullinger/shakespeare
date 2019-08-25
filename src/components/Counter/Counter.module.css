@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid#32DCFD;
+  height: 35px;
+  margin: 5px;
+  border-radius: 5px;
+}
+.btn:hover {
+  background-color: #32dcfd;
+}
+
+.btn p {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  margin: 0;
+  padding-right: 5px;
+}

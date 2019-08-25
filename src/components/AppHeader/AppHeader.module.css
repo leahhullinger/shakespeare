@@ -1,18 +1,17 @@
 .container {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title {
-  width: 100%;
   text-align: left;
   font-size: 48px;
   font-family: "Beth Ellen", cursive;
   font-weight: 900;
   letter-spacing: 0.03rem;
-  color: #0029fa;
+  color: #0f1f40;
   position: fixed;
   z-index: 5;
   margin: 0;
 }
-
-/* add @media that makes font bigger */

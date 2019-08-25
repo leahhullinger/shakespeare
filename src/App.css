@@ -1,16 +1,5 @@
 .App {
+  display: flex;
+  justify-content: center;
   padding: 20px 50px;
-  background-image: url("https://static01.nyt.com/newsgraphics/2016/04/23/shakespeare-obit/5df060d71eeea88c911a30e5b02991c26fe7bc74/bill.jpg");
-  background-position: center right;
-  /* background-repeat: no-repeat; */
-  background-attachment: fixed;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

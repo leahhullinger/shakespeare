@@ -1,27 +1,46 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import { act } from "react-dom/test-utils";
 import Counter from "../components/Counter/Counter";
-import { create } from "react-test-renderer";
 
-describe("Counter Component", () => {
-  const component = create(<Counter />);
-  const instance = component.root;
-  const button = instance.findAllByType("button");
+let container;
 
-  test("shows the number of like clicks", () => {
-    expect(button.length).toBe(2);
-    const likeBtn = button[0];
-    likeBtn.props.onClick();
-    expect(likeBtn.props.children).toBe("Likes 1");
-    likeBtn.props.onClick();
-    expect(likeBtn.props.children).toBe("Likes 2");
+beforeEach(() => {
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  document.body.removeChild(container);
+  container = null;
+});
+
+it("can render and update likes counter", () => {
+  // Test first render and componentDidMount
+  act(() => {
+    ReactDOM.render(<Counter />, container);
   });
+  const button = container.querySelector("[data-testid='likesBtn']");
+  const label = container.querySelector("[data-testid='likes']");
+  expect(label.textContent).toBe("Likes");
 
-  test("shows the number of dislike clicks", () => {
-    expect(button.length).toBe(2);
-    const dislikeBtn = button[1];
-    dislikeBtn.props.onClick();
-    expect(dislikeBtn.props.children).toBe("Dislikes 1");
-    dislikeBtn.props.onClick();
-    expect(dislikeBtn.props.children).toBe("Dislikes 2");
+  // Test second render and componentDidUpdate
+  act(() => {
+    button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
+  expect(label.textContent).toBe("Likes");
+});
+
+it("can render and update dislikes counter", () => {
+  act(() => {
+    ReactDOM.render(<Counter />, container);
+  });
+  const button = container.querySelector("[data-testid='dislikesBtn']");
+  const label = container.querySelector("[data-testid='dislikes']");
+  expect(label.textContent).toBe("Dislikes");
+
+  act(() => {
+    button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  });
+  expect(label.textContent).toBe("Dislikes");
 });
